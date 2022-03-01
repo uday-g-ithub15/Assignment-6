@@ -108,22 +108,23 @@ header #search-btn{
     margin: auto;
     margin-top: 5px;
 }
+.loader-section{
+
+ display: flex;
+    justify-content: center;
+    align-items: center; 
+    position: relative;
+}
 .loader{
     width: 120px;
-    /* background-color: bisque; */
     height: 120px;
     border: 10px solid red;
     border-top: 10px solid blue;
-    /* border-image: linear-gradient(blue, black,blue);
-    border-image-slice: 1; */
     border-radius: 50%;
     animation: spin 2s linear infinite;
-    margin: auto;
-    position: absolute;
+    position: fixed;
     top: 50%;
-    left: 50%;
     display: none;
-
 }
 @keyframes spin{
     0%{

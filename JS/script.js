@@ -9,15 +9,30 @@ const getMobile = () => {
         document.getElementById('blank-error').style.display = 'none'
     }
     document.getElementById('search-bar').value = '';
+    loaderShow('block');
     fetch(url)
         .then(res => res.json())
-        .then(data => displayMobile(data.data))
+        // .then(data => displayMobile(data.data))
+        .then(data => {
+            if (data.status) {
+                displayMobile(data.data)
+            }
+            else {
+                document.getElementById('type-error').style.display = 'block'
+                document.getElementById('blank-error').style.display = 'none'
+                document.getElementById('display-mobile').innerHTML = ''
+                loaderShow('none');
+            }
+        })
 
 }
 // getMobile();
 
 const displayMobile = (mobiles) => {
+    document.getElementById('type-error').style.display = 'none'
+    document.getElementById('blank-error').style.display = 'none'
     const showMobile = document.getElementById('display-mobile');
+    // showMobile.style.display = 'block'
     showMobile.classList.add('display-mobile');
     showMobile.textContent = '';
     mobiles.forEach(mobile => {
@@ -33,6 +48,7 @@ const displayMobile = (mobiles) => {
         showMobile.appendChild(mobileShow);
     }
     )
+    loaderShow('none');
 }
 
 //Get single mobile details
@@ -47,8 +63,6 @@ const displaySingleMobile = mobile => {
     const singleMobileDisplay = document.getElementById('single-mobile');
     singleMobileDisplay.textContent = '';
     const mobileSensor = mobile.mainFeatures.sensors;
-    console.log(mobileSensor);
-    console.log(mobile);
     const singleMobile = document.createElement('div');
     singleMobile.classList.add('single-mobile')
     singleMobile.innerHTML = `
@@ -63,7 +77,10 @@ const displaySingleMobile = mobile => {
     <h4>Memory : ${mobile.mainFeatures.memory}</h4>
     <h4>Sensors : ${mobile.mainFeatures.sensors}</h4>
     </div>
-
     `
     singleMobileDisplay.appendChild(singleMobile);
+}
+
+const loaderShow = display => {
+    document.getElementById('loader').style.display = display;
 }
