@@ -33,3 +33,35 @@ const displayMobile = (mobiles) => {
     })
 
 }
+
+const getSingleMobile = (id) => {
+    const url = `https://openapi.programming-hero.com/api/phone/${id}`
+    fetch(url)
+        .then(res => res.json())
+        .then(data => displaySingleMobile(data.data))
+}
+
+const displaySingleMobile = mobile => {
+    const singleMobileDisplay = document.getElementById('single-mobile');
+    singleMobileDisplay.textContent = '';
+    const mobileSensor = mobile.mainFeatures.sensors;
+    console.log(mobileSensor);
+    console.log(mobile);
+    const singleMobile = document.createElement('div');
+    singleMobile.classList.add('single-mobile')
+    singleMobile.innerHTML = `
+    <div>
+    <img src = ${mobile.image}>
+    </div>
+    <div>
+    <h4>Name : ${mobile.name}</h4>
+    <h4>Release Date : ${mobile.releaseDate ? mobile.releaseDate : 'No release date found'}</h4>
+    <h4>Chipset : ${mobile.mainFeatures.chipSet}</h4>
+    <h4>Display Size : ${mobile.mainFeatures.displaySize}</h4>
+    <h4>Memory : ${mobile.mainFeatures.memory}</h4>
+    <h4>Sensors : ${mobile.mainFeatures.sensors}</h4>
+    </div>
+
+    `
+    singleMobileDisplay.appendChild(singleMobile);
+}

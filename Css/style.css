@@ -84,3 +84,18 @@ header #search-btn{
     color: rgba(255, 0, 0, 0.767);
     display: none;
 }
+#single-mobile{
+    /* display: flex; */
+    /* justify-content: center; */
+    width: 75%;
+    margin: auto;
+    padding: 20px;
+    margin-top: 5px;
+}
+.single-mobile{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    background-color: #e6e4df8c;
+    color: darkblue;
+}

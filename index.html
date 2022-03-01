@@ -13,26 +13,35 @@
 </head>
 
 <body>
+    <!------- Header Section Start ------->
     <header>
         <section id="search-field">
             <input type="text" id="search-bar" placeholder="Find your mobile ... ">
             <button id="search-btn" onclick="getMobile()">Find</button>
         </section>
+        <!-- Error Massage if user don't write anything -->
+        <p class="error" id="blank-error">Please write your mobile correctly
+        </p>
     </header>
+    <!------- Header Section End ------->
+
+    <!------- Main Section Start ------->
     <main id="main">
+        <!-- Show Single Result -->
+        <section id="single-mobile">
+
+        </section>
+        <!-- Show as search -->
         <section id="display-mobile">
 
         </section>
-
-        <!-- Error masssage Section -->
-        <section>
-            <p class="error" id="blank-error">Please write your mobile correctly
-            </p>
-            <p class="error" id="type-error">No mobile found</p>
-        </section>
+        <!-- Error Massage -->
+        <p class="error" id="type-error">No mobile found</p>
     </main>
+    <!------- Main Section End ------->
+
+    <!------- Script File ------->
     <script src="JS/script.js"></script>
-    <!-- <script src="Bootstrap-file/bootstrap.bundle.min.js"></script> -->
 </body>
 
 </html>
