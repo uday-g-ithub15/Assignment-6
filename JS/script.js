@@ -12,6 +12,7 @@ const getMobile = () => {
     fetch(url)
         .then(res => res.json())
         .then(data => displayMobile(data.data))
+
 }
 // getMobile();
 
@@ -30,17 +31,18 @@ const displayMobile = (mobiles) => {
         <button class='btn' onclick='getSingleMobile("${mobile.slug}")'>Explore</button>
         `
         showMobile.appendChild(mobileShow);
-    })
-
+    }
+    )
 }
 
+//Get single mobile details
 const getSingleMobile = (id) => {
     const url = `https://openapi.programming-hero.com/api/phone/${id}`
     fetch(url)
         .then(res => res.json())
         .then(data => displaySingleMobile(data.data))
 }
-
+// Display Single Mobile
 const displaySingleMobile = mobile => {
     const singleMobileDisplay = document.getElementById('single-mobile');
     singleMobileDisplay.textContent = '';

@@ -1,4 +1,8 @@
+body{
+    background-color: #e9e9f1;
+}
 /* header */
+
 header #search-field{
     width: 75%;
     margin: auto;
@@ -98,4 +102,9 @@ header #search-btn{
     align-items: center;
     background-color: #e6e4df8c;
     color: darkblue;
+}
+#load-more-btn{
+    display: block;
+    margin: auto;
+    margin-top: 5px;
 }
