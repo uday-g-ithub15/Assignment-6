@@ -16,9 +16,21 @@
     <header>
         <section id="search-field">
             <input type="text" id="search-bar" placeholder="Find your mobile ... ">
-            <button id="search-btn">Find</button>
+            <button id="search-btn" onclick="getMobile()">Find</button>
         </section>
     </header>
+    <main id="main">
+        <section id="display-mobile">
+
+        </section>
+
+        <!-- Error masssage Section -->
+        <section>
+            <p class="error" id="blank-error">Please write your mobile correctly
+            </p>
+            <p class="error" id="type-error">No mobile found</p>
+        </section>
+    </main>
     <script src="JS/script.js"></script>
     <!-- <script src="Bootstrap-file/bootstrap.bundle.min.js"></script> -->
 </body>
