@@ -8,7 +8,7 @@ const getMobile = () => {
     if (searchText.length == 0) {
         document.getElementById('blank-error').style.display = 'block'
         document.getElementById('type-error').style.display = 'none';
-        return getMobile;
+        return getMobile();
     }
     document.getElementById('search-bar').value = '';
     loaderShow('block');
@@ -16,14 +16,15 @@ const getMobile = () => {
         .then(res => res.json())
         .then(data => {
             if (data.status) {
+                console.log(data.data);
                 displayMobile(data.data)
-                // console.log(data)
             }
             else {
                 document.getElementById('type-error').style.display = 'block';
                 document.getElementById('blank-error').style.display = 'none';
                 document.getElementById('load-more-btn').style.display = 'none';
-                document.getElementById('display-mobile').innerHTML = '';
+                document.getElementById('display-mobile').textContent = '';
+                document.getElementById('move-top').style.display = 'none';
                 loaderShow('none');
             }
         })
@@ -33,17 +34,19 @@ const getMobile = () => {
     Display mobile after searching
 */
 const displayMobile = (mobiles) => {
+    console.log(mobiles);
     document.getElementById('type-error').style.display = 'none';
     document.getElementById('blank-error').style.display = 'none';
     const first20 = mobiles.slice(0, 20);
     if (first20.length >= 20) {
         document.getElementById('load-more-btn').style.display = 'block';
+        document.getElementById('move-top').style.display = 'block'
     }
-    const last = mobiles.splice(20, mobiles.length);
     showMobileOnUi(first20);
     document.getElementById('load-more-btn').addEventListener('click', function () {
-        showMobileOnUi(last);
+        showMobileOnUi(mobiles);
         document.getElementById('load-more-btn').style.display = 'none'
+        document.getElementById('move-top').style.display = 'block'
     })
     loaderShow('none');
 }
@@ -58,7 +61,7 @@ const showMobileOnUi = (displayMobile) => {
         mobileShow.innerHTML = `
         <img src='${mobile.image}'>
         <h3>Brand : ${mobile.brand}</h3>
-        <h3>${mobile.phone_name}</h3>
+        <h3>Name : ${mobile.phone_name}</h3>
         <button class='btn' onclick='getSingleMobile("${mobile.slug}")'>Explore</button>
         `
         showMobile.appendChild(mobileShow);
@@ -72,9 +75,12 @@ const getSingleMobile = (id) => {
     fetch(url)
         .then(res => res.json())
         .then(data => displaySingleMobile(data.data))
+    loaderShow('block')
 }
 // Display Single Mobile
 const displaySingleMobile = mobile => {
+    window.location.href = '#single-mobile';
+    loaderShow('none');
     const singleMobileDisplay = document.getElementById('single-mobile');
     singleMobileDisplay.textContent = '';
     const singleMobile = document.createElement('div');
@@ -85,11 +91,11 @@ const displaySingleMobile = mobile => {
     </div>
     <div class='single-text' id=''single-text>
     <h4>Name : ${mobile.name}</h4>
-    <h4>Release Date : ${mobile.releaseDate ? mobile.releaseDate : 'No release date found'}</h4>
+    <h4>Release Date : ${mobile.releaseDate ? mobile.releaseDate : 'Upcomig'}</h4>
     <h4>Chipset : ${mobile.mainFeatures.chipSet}</h4>
     <h4>Display Size : ${mobile.mainFeatures.displaySize}</h4>
     <h4>Memory : ${mobile.mainFeatures.memory}</h4>
-    <h4 id='sann'>Sensors : ${mobile.mainFeatures.sensors}</h4>
+    <h4>Sensors : ${mobile.mainFeatures.sensors}</h4>
     <h4>WLAN : ${mobile.others?.WLAN ? mobile.others.WLAN : 'No'}</h4>
     <h4>Blutooth : ${mobile.others?.Bluetooth ? mobile.others.Bluetooth : 'No'}</h4>
     <h4>GPS : ${mobile.others?.GPS ? mobile.others.GPS : 'No'}</h4>
