@@ -14,6 +14,7 @@
 <body>
     <!------- Header Section Start ------->
     <header>
+
         <section class="header-content">
             <h1>Mobile Traders</h1>
             <p>Buy your product from us</p>
@@ -31,8 +32,15 @@
         <p class="error" id="type-error">No mobile found</p>
     </header>
     <!------- Header Section End ------->
+    <!-- Loader -->
+    <section class="loader-section">
+        <div class="loader" id="loader">
 
-    <!------- Main Section Start ------->
+        </div>
+    </section>
+
+
+    <!------- Main Section Start ------>
     <main id="main">
         <!-- Show Single Result -->
         <section id="single-mobile">
@@ -44,24 +52,23 @@
             </div>
         </section>
 
-        <!-- Loader -->
-        <section class="loader-section">
-            <div class="loader" id="loader">
 
-            </div>
-        </section>
 
         <!-- Show as search -->
         <section id="display-mobile">
 
         </section>
 
-        <button class="btn" id="load-more-btn">Load more</button>
+        <section class="load-move-btn">
+            <button class="btn" id="load-more-btn">Load more</button>
+            <button class="btn" id="move-top" onclick="window.location.href = '#search-field' ">Move top</button>
+        </section>
     </main>
     <!------- Main Section End ------->
 
     <!------- Script File ------->
     <script src="JS/script.js"></script>
+    <!-- <script src="JS/c.js"></script> -->
 </body>
 
 </html>
