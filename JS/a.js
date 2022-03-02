@@ -75,11 +75,26 @@ const getSingleMobile = (id) => {
 }
 // Display Single Mobile
 const displaySingleMobile = mobile => {
+    for (const phone in mobile) {
+        console.log(phone);
+    }
     const singleMobileDisplay = document.getElementById('single-mobile');
     singleMobileDisplay.textContent = '';
     const singleMobile = document.createElement('div');
     singleMobile.classList.add('single-mobile');
-    singleMobile.innerHTML = `
+    const singleImage = document.getElementById('single-image');
+    const image = document.createElement('img');
+    image.setAttribute('img', '${mobile.image}')
+    const singleText = document.getElementById('single-details');
+    console.log(mobile);
+    const h4 = document.createElement('h4');
+    h4.innerText = `${mobile.name}`;
+    h4.innerText = `${mobile.mainFeatures.chipSet}`;
+    singleMobile.appendChild(h4);
+    singleMobileDisplay.appendChild(singleMobile)
+    // singleMobileDisplay.appendChild
+    // singleImage.appendChild(image);
+    /*singleMobile.innerHTML = `
     <div single-image>
     <img src = ${mobile.image}>
     </div>
@@ -98,7 +113,7 @@ const displaySingleMobile = mobile => {
     <h4>USB : ${mobile.others?.USB ? mobile.others.USB : 'No'}</h4>
     </div>
     `
-    singleMobileDisplay.appendChild(singleMobile);
+    singleMobileDisplay.appendChild(singleMobile);*/
 }
 
 //Declare loader function
