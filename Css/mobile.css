@@ -1,0 +1,22 @@
+@media  screen and (max-width:688px) {
+    header #search-field{
+        width: 75%;
+    }
+    header #search-bar{
+        width: 60%;
+    }
+    #display-mobile{  
+         margin: auto;
+        grid-template-columns: auto;
+    }
+    .single-mobile{
+        display: flex;
+        flex-direction: column;
+        justify-content:center;
+        align-items: center;
+        background-color: #e6e4df8c;
+        color: darkblue;
+        animation: single 1s linear;
+        position: relative;
+    }
+}

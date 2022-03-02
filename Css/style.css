@@ -1,8 +1,23 @@
+/* Common Style */
 body{
     background-color: #e9e9f1;
 }
+.btn{
+    background-color: #e6e4df8c;
+    color: #1043fdd6;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid blue;
+    padding: 10px;
+}
+.btn:hover{
+    box-shadow: 0px 2px 10px rgba(0, 0, 255, 0.151);
+}
 /* header */
-
+header .header-content{
+    text-align: center;
+    color: blueviolet;
+}
 header #search-field{
     width: 75%;
     margin: auto;
@@ -33,9 +48,6 @@ header #search-bar::placeholder{
     border: 1px solid blue;
     outline: none;
 }
-#search-btn:hover{
-    box-shadow: 0px 2px 10px rgba(0, 0, 255, 0.151);
-}
 header #search-btn{
     display: block;
     width: 15%;
@@ -46,13 +58,17 @@ header #search-btn{
     border-radius: 5px;
     border: 1px solid blue;
 }
+#search-btn:hover{
+    box-shadow: 0px 2px 10px rgba(0, 0, 255, 0.151);
+}
+/* Main */
 .display-mobile{
     width: 75%;
     margin: auto;
     margin-top: 10px;
     background-color: #e6e4df8c;
     padding: 20px;
-    /* display: none; */
+    margin-bottom: 10px;
 }
 #display-mobile{
     display: grid;
@@ -67,30 +83,21 @@ header #search-btn{
     background-color: aliceblue;
     padding: 20px 10px;
 }
-.btn{
-    background-color: #e6e4df8c;
-    color: #1043fdd6;
-    font-weight: bold;
-    border-radius: 5px;
-    border: 1px solid blue;
-    padding: 10px;
-}
-.btn:hover{
-    box-shadow: 0px 2px 10px rgba(0, 0, 255, 0.151);
-}
+
 .mobile-card:hover{
     transform: translateY(-20px);
     transition: transform 0.3s;
 }
+/* Error msg style */
 .error{
     text-align: center;
     font-size: 20px;
     color: rgba(255, 0, 0, 0.767);
     display: none;
 }
+
+/* Single Mobile Part */
 #single-mobile{
-    /* display: flex; */
-    /* justify-content: center; */
     width: 75%;
     margin: auto;
     padding: 20px;
@@ -102,19 +109,23 @@ header #search-btn{
     align-items: center;
     background-color: #e6e4df8c;
     color: darkblue;
-}
-#load-more-btn{
-    display: block;
-    margin: auto;
-    margin-top: 5px;
-}
-.loader-section{
-
- display: flex;
-    justify-content: center;
-    align-items: center; 
+    animation: single 1s linear;
     position: relative;
 }
+.single-text{
+    width: 45%;
+}
+.single-image{
+    width: 45%;
+}
+/* Load more buttor */
+#load-more-btn{
+    display: none;
+    margin: auto;
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+/* Spinner */
 .loader{
     width: 120px;
     height: 120px;
@@ -124,8 +135,10 @@ header #search-btn{
     animation: spin 2s linear infinite;
     position: fixed;
     top: 50%;
+    left: 50%;
     display: none;
 }
+/* Spinner Animation */
 @keyframes spin{
     0%{
         transform: rotate(0deg);
@@ -134,3 +147,13 @@ header #search-btn{
         transform: rotate(360deg);
     }
 }
+/* Single mobile showing animation */
+@keyframes single{
+    0%{  opacity: 0;
+    }
+    100%{
+opacity: 1;
+    }
+}
+
+

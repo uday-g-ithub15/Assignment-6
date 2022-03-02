@@ -6,19 +6,24 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Assignment 6</title>
+    <!-- Css Linking -->
     <link rel="stylesheet" href="Css/style.css">
-    <!--Customized-->
-    <!-- <link rel="stylesheet" href="Bootstrap-file/bootstrap.min.css"> -->
-    <!--Bootstrap-->
+    <link rel="stylesheet" href="Css/mobile.css">
 </head>
 
 <body>
     <!------- Header Section Start ------->
     <header>
+        <section class="header-content">
+            <h1>Mobile Traders</h1>
+            <p>Buy your product from us</p>
+        </section>
+
         <section id="search-field">
             <input type="text" id="search-bar" placeholder="Find your mobile ... ">
             <button id="search-btn" onclick="getMobile()">Find</button>
         </section>
+
         <!-- Error Massage if user don't write anything -->
         <p class="error" id="blank-error">Please write your mobile correctly
         </p>
@@ -33,9 +38,11 @@
         <section id="single-mobile">
 
         </section>
+
         <!-- Loader -->
         <section class="loader-section">
             <div class="loader" id="loader">
+
             </div>
         </section>
 
@@ -43,6 +50,8 @@
         <section id="display-mobile">
 
         </section>
+
+        <button class="btn" id="load-more-btn">Load more</button>
     </main>
     <!------- Main Section End ------->
 
