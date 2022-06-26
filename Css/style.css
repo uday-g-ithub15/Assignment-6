@@ -1,6 +1,7 @@
 /* Common Style **/
 body{
-    background-color: #e9e9f1;
+    background-color: #ffffffc4;
+    color: black;
 }
 .btn{
     background-color: #e6e4df8c;
@@ -9,6 +10,7 @@ body{
     border-radius: 5px;
     border: 1px solid blue;
     padding: 10px;
+    cursor: pointer;
 }
 .btn:hover{
     box-shadow: 0px 2px 10px rgba(0, 0, 255, 0.151);
@@ -16,13 +18,13 @@ body{
 /* header */
 header .header-content{
     text-align: center;
-    color: blueviolet;
+    color: rgb(24, 24, 105);
+    font-weight: bold;
 }
 header #search-field{
     width: 75%;
     margin: auto;
     padding: 20px;
-    background-color: #e6e4df8c;
     display: flex;
     justify-content: space-evenly;
 }
@@ -31,7 +33,7 @@ header #search-bar{
     width: 80%;
     padding: 10px ;
     border-radius: 5px;
-    background-color: #e6e4df8c;
+    background-color: #fff;
     color: #1043fdd6;
     font-size: 18px;
     border:1px solid blue;
@@ -42,7 +44,7 @@ header #search-bar::placeholder{
     font-weight: bold;
 }
 #search-bar:hover{
-    box-shadow: 0px 2px 10px rgba(0, 0, 255, 0.151);
+    box-shadow: 0px 2px 10px rgba(166, 166, 182, 0.965);
 }
 #search-bar:focus{
     border: 1px solid blue;
@@ -52,21 +54,23 @@ header #search-btn{
     display: block;
     width: 15%;
     text-align: center;
-    background-color: #e6e4df8c;
-    color: #1043fdd6;
+    background-color: #ffffff;
+    color: #030c1dd6;
     font-weight: bold;
     border-radius: 5px;
     border: 1px solid blue;
+    cursor: pointer;
+    transition: all 0.5s;
 }
 #search-btn:hover{
     box-shadow: 0px 2px 10px rgba(0, 0, 255, 0.151);
+    transform: translateY(-10px);
 }
 /* Main */
 .display-mobile{
     width: 75%;
     margin: auto;
     margin-top: 10px;
-    background-color: #e6e4df8c;
     padding: 20px;
     margin-bottom: 10px;
 }
@@ -82,11 +86,11 @@ header #search-btn{
     align-items: center;
     background-color: aliceblue;
     padding: 20px 10px;
+    transition: transform 0.3s ease-in-out;
 }
 
 .mobile-card:hover{
     transform: translateY(-20px);
-    transition: transform 0.3s ease-in-out;
     box-shadow: 0px 2px 10px #802cb1;
 }
 /* Error msg style */
@@ -113,9 +117,9 @@ header #search-btn{
     animation: single 1s linear;
     position: relative;
     word-wrap: break-word;
+    box-shadow: 0px 2px 10px #802cb1;
 }
 .single-mobile:hover{
-    box-shadow: 0px 2px 10px #802cb1;
     transition: all 0.3s ease-in-out ;
 }
 .single-text{
