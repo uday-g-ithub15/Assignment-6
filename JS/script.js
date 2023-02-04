@@ -16,7 +16,6 @@ const getMobile = () => {
         .then(res => res.json())
         .then(data => {
             if (data.status) {
-                console.log(data.data);
                 displayMobile(data.data)
             }
             else {
@@ -34,7 +33,6 @@ const getMobile = () => {
     Display mobile after searching
 */
 const displayMobile = (mobiles) => {
-    console.log(mobiles);
     document.getElementById('type-error').style.display = 'none';
     document.getElementById('blank-error').style.display = 'none';
     const first20 = mobiles.slice(0, 20);
